@@ -9,19 +9,29 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
+@RequestMapping("/sehir-ilce") // Ekledim
 public class SehirIlceController {
 
     @Autowired
     private SehirIlceService sehirIlceService;
 
-    @PostMapping("/sehir-ilce-ekle")
-    public SehirIlce ekleSehirIlce(@RequestBody SehirIlce sehirIlce){
+    @PostMapping("/ekle")
+    public SehirIlce ekleSehirIlce(@RequestBody SehirIlce sehirIlce) {
         return sehirIlceService.ekleSehirIlce(sehirIlce);
     }
 
-    @GetMapping("/sehir-listele")
-    public List<SehirIlce> getirSehirIlce(){
+    @GetMapping("/listele")
+    public List<SehirIlce> getirSehirIlce() {
         return sehirIlceService.getirSehirIlce();
     }
 
+    @PutMapping("/guncelle/{id}")
+    public SehirIlce guncelleSehirIlce(@PathVariable int id, @RequestBody SehirIlce yeniSehirIlce) {
+        return sehirIlceService.guncelleSehirIlce(id, yeniSehirIlce);
+    }
+
+    @DeleteMapping("/sil/{id}")
+    public void sehirIlceSil(@PathVariable int id) {
+        sehirIlceService.silSehirIlce(id);
+    }
 }
