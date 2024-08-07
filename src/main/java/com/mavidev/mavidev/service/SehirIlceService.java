@@ -41,4 +41,10 @@ public class SehirIlceService {
             throw new RuntimeException("Silinecek şehir ve ilçe bulunamadı.");
         }
     }
+
+    public void hepsiniTemizle(){
+        sehirIlceRepository.deleteAll();
+    }
+
+
 }

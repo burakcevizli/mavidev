@@ -34,4 +34,9 @@ public class SehirIlceController {
     public void sehirIlceSil(@PathVariable int id) {
         sehirIlceService.silSehirIlce(id);
     }
+
+    @DeleteMapping("/sil/hepsi")
+    public void hepsiniSil(){
+        sehirIlceService.hepsiniTemizle();
+    }
 }
