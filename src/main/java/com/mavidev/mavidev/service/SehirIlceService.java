@@ -22,18 +22,6 @@ public class SehirIlceService {
         return sehirIlceRepository.findAll();
     }
 
-    public SehirIlce guncelleSehirIlce(int id, SehirIlce yeniSehirIlce) {
-        Optional<SehirIlce> mevcutSehirIlce = sehirIlceRepository.findById(id);
-        if (mevcutSehirIlce.isPresent()) {
-            SehirIlce guncellenecekSehirIlce = mevcutSehirIlce.get();
-            guncellenecekSehirIlce.setIlce(yeniSehirIlce.getIlce());
-            guncellenecekSehirIlce.setSehir(yeniSehirIlce.getSehir());
-            return sehirIlceRepository.save(guncellenecekSehirIlce);
-        } else {
-            throw new RuntimeException("ID'ye ait şehir ve ilçe bulunamadı.");
-        }
-    }
-
     public void silSehirIlce(int id) {
         if (sehirIlceRepository.existsById(id)) {
             sehirIlceRepository.deleteById(id);

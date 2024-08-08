@@ -25,11 +25,6 @@ public class SehirIlceController {
         return sehirIlceService.getirSehirIlce();
     }
 
-    @PutMapping("/guncelle/{id}")
-    public SehirIlce guncelleSehirIlce(@PathVariable int id, @RequestBody SehirIlce yeniSehirIlce) {
-        return sehirIlceService.guncelleSehirIlce(id, yeniSehirIlce);
-    }
-
     @DeleteMapping("/sil/{id}")
     public void sehirIlceSil(@PathVariable int id) {
         sehirIlceService.silSehirIlce(id);
